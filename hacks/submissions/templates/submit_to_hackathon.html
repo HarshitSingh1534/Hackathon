@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit to Hackathon</title>
+</head>
+<body>
+    <h2>Submit to "{{ hackathon.title }}" Hackathon</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+<a href="{% url 'dashboard' %}">Dashboard</a>
+</body>
+</html>

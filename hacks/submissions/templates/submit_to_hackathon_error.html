@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit to Hackathon Error</title>
+</head>
+<body>
+    <h2>Submission Error</h2>
+    <p>Sorry, you can only submit to the hackathon between {{ hackathon.start_datetime }} and {{ hackathon.end_datetime }}.</p>
+<a href="{% url 'dashboard' %}">Dashboard</a>
+</body>
+</html>

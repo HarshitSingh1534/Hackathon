@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Hackathons</title>
+</head>
+<body>
+{% if user_hackathons %}
+    <h2>My Hackathons</h2>
+    <ul>
+        {% for hackathon in user_hackathons %}
+            <li><a href="{% url 'hackathon_detail' hackathon.id %}">{{ hackathon.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No Hackathons Registered Yet!</p>
+{% endif %}
+<a href="{% url 'dashboard' %}">Dashboard</a>
+</body>
+</html>

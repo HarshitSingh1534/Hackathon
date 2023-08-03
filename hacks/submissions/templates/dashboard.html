@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, {{ user.username }}!</h2>
+    {% if user_hackathons %}
+    <h3>Your Hackathons:</h3>
+    <ul>
+        {% for hackathon in user_hackathons %}
+            <li><a href="{% url 'hackathon_detail' hackathon.id %}">{{ hackathon.title }}</a></li>
+        {% empty %}
+            <li>No hackathons registered.</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No Hackathons Registered!</p>
+    {% endif %}
+    {% if user_submissions %}
+    <h3>Your Submissions:</h3>
+    <ul>
+        {% for submission in user_submissions %}
+            <li>{{ submission.submission_name }} - {{ submission.hackathon.title }}</li>
+        {% empty %}
+            <li>No submissions made.</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h3>No Submissions Made!</h3>
+    {% endif %}
+    <br>
+    <a href="{% url 'my_hackathons' %}">My Hackathons</a>
+    <br>
+    <a href="{% url 'all_hackathons' %}">All Hackathons</a>
+    <br>
+    <a href="{% url 'create_hackathon' %}">Create Hackathon</a>
+    <br>
+    <br>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackathon Details</title>
+</head>
+<body>
+    <h2>{{ hackathon.title }}</h2>
+    <p>Description: {{ hackathon.description }}</p>
+    <br>
+    <a href="{% url 'register_for_hackathon' hackathon.id %}">Register for Hackathon</a>
+    <br>
+<a href="{% url 'dashboard' %}">Dashboard</a>
+</body>
+</html>
